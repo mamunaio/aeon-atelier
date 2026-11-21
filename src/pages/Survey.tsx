@@ -20,48 +20,64 @@ interface Q {
 }
 
 const QUESTIONS: Q[] = [
-  { key: 'vibe', title: "What's your fashion vibe?", options: [
-    { value: 'Streetwear', label: 'Streetwear', hint: 'Bold, oversized, graphic' },
-    { value: 'Minimalist', label: 'Minimalist', hint: 'Clean, refined, timeless' },
-    { value: 'Classic', label: 'Classic', hint: 'Polished and put-together' },
-    { value: 'Luxe', label: 'Luxe', hint: 'Premium materials, statement pieces' },
-    { value: 'Athleisure', label: 'Athleisure', hint: 'Sporty, comfortable, versatile' },
-    { value: 'Bold', label: 'Bold & Expressive', hint: 'Color, pattern, personality' },
-  ] },
-  { key: 'colors', title: 'Which colors speak to you?', sub: 'Pick as many as you like', multi: true, options: [
-    { value: 'black', label: 'Black' }, { value: 'white', label: 'White' }, { value: 'grey', label: 'Grey' },
-    { value: 'violet', label: 'Violet' }, { value: 'teal', label: 'Teal' }, { value: 'blue', label: 'Blue' },
-    { value: 'red', label: 'Red' }, { value: 'green', label: 'Green' }, { value: 'gold', label: 'Gold' },
-  ] },
-  { key: 'formality', title: 'How do you usually dress?', options: [
-    { value: 'Casual', label: 'Casual', hint: 'Everyday comfort' },
-    { value: 'Smart Casual', label: 'Smart Casual', hint: 'Elevated but relaxed' },
-    { value: 'Formal', label: 'Formal', hint: 'Sharp and tailored' },
-  ] },
-  { key: 'boldness', title: 'How bold are your choices?', options: [
-    { value: 'Subtle', label: 'Subtle', hint: 'Understated & versatile' },
-    { value: 'Balanced', label: 'Balanced', hint: 'A little of both' },
-    { value: 'Bold', label: 'Bold', hint: 'Turn heads' },
-  ] },
-  { key: 'fits', title: 'Which fits do you love?', sub: 'Choose your favorites', multi: true, options: [
-    { value: 'classic', label: 'Classic' }, { value: 'slim', label: 'Slim' }, { value: 'relaxed', label: 'Relaxed' },
-    { value: 'oversized', label: 'Oversized' }, { value: 'tailored', label: 'Tailored' },
-  ] },
-  { key: 'categories', title: 'What are you shopping for?', sub: 'Select all that apply', multi: true, options: [
-    { value: 'tshirts', label: 'T-Shirts' }, { value: 'hoodies', label: 'Hoodies' }, { value: 'shirts', label: 'Shirts' },
-    { value: 'jeans', label: 'Jeans' }, { value: 'sneakers', label: 'Sneakers' }, { value: 'watches', label: 'Watches' },
-    { value: 'bags', label: 'Bags' }, { value: 'caps', label: 'Caps' },
-  ] },
-  { key: 'price', title: "What's your typical budget per piece?", options: [
-    { value: '0-120', label: 'Under RM 120', hint: 'Smart value' },
-    { value: '120-260', label: 'RM 120 – 260', hint: 'Premium everyday' },
-    { value: '260-600', label: 'RM 260 – 600', hint: 'Elevated' },
-    { value: '600-2000', label: 'RM 600+', hint: 'Luxury' },
-  ] },
-  { key: 'eventType', title: 'Any occasion in mind?', options: [
-    { value: 'everyday', label: 'Everyday wardrobe' }, { value: 'work', label: 'Work' },
-    { value: 'event', label: 'Special event' }, { value: 'gift', label: 'A gift' },
-  ] },
+  {
+    key: 'vibe', title: "What's your fashion vibe?", options: [
+      { value: 'Streetwear', label: 'Streetwear', hint: 'Bold, oversized, graphic' },
+      { value: 'Minimalist', label: 'Minimalist', hint: 'Clean, refined, timeless' },
+      { value: 'Classic', label: 'Classic', hint: 'Polished and put-together' },
+      { value: 'Luxe', label: 'Luxe', hint: 'Premium materials, statement pieces' },
+      { value: 'Athleisure', label: 'Athleisure', hint: 'Sporty, comfortable, versatile' },
+      { value: 'Bold', label: 'Bold & Expressive', hint: 'Color, pattern, personality' },
+    ]
+  },
+  {
+    key: 'colors', title: 'Which colors speak to you?', sub: 'Pick as many as you like', multi: true, options: [
+      { value: 'black', label: 'Black' }, { value: 'white', label: 'White' }, { value: 'grey', label: 'Grey' },
+      { value: 'violet', label: 'Violet' }, { value: 'teal', label: 'Teal' }, { value: 'blue', label: 'Blue' },
+      { value: 'red', label: 'Red' }, { value: 'green', label: 'Green' }, { value: 'gold', label: 'Gold' },
+    ]
+  },
+  {
+    key: 'formality', title: 'How do you usually dress?', options: [
+      { value: 'Casual', label: 'Casual', hint: 'Everyday comfort' },
+      { value: 'Smart Casual', label: 'Smart Casual', hint: 'Elevated but relaxed' },
+      { value: 'Formal', label: 'Formal', hint: 'Sharp and tailored' },
+    ]
+  },
+  {
+    key: 'boldness', title: 'How bold are your choices?', options: [
+      { value: 'Subtle', label: 'Subtle', hint: 'Understated & versatile' },
+      { value: 'Balanced', label: 'Balanced', hint: 'A little of both' },
+      { value: 'Bold', label: 'Bold', hint: 'Turn heads' },
+    ]
+  },
+  {
+    key: 'fits', title: 'Which fits do you love?', sub: 'Choose your favorites', multi: true, options: [
+      { value: 'classic', label: 'Classic' }, { value: 'slim', label: 'Slim' }, { value: 'relaxed', label: 'Relaxed' },
+      { value: 'oversized', label: 'Oversized' }, { value: 'tailored', label: 'Tailored' },
+    ]
+  },
+  {
+    key: 'categories', title: 'What are you shopping for?', sub: 'Select all that apply', multi: true, options: [
+      { value: 'tshirts', label: 'T-Shirts' }, { value: 'hoodies', label: 'Hoodies' }, { value: 'shirts', label: 'Shirts' },
+      { value: 'jeans', label: 'Jeans' }, { value: 'sneakers', label: 'Sneakers' }, { value: 'watches', label: 'Watches' },
+      { value: 'bags', label: 'Bags' }, { value: 'caps', label: 'Caps' },
+    ]
+  },
+  {
+    key: 'price', title: "What's your typical budget per piece?", options: [
+      { value: '0-120', label: 'Under RM 120', hint: 'Smart value' },
+      { value: '120-260', label: 'RM 120 – 260', hint: 'Premium everyday' },
+      { value: '260-600', label: 'RM 260 – 600', hint: 'Elevated' },
+      { value: '600-2000', label: 'RM 600+', hint: 'Luxury' },
+    ]
+  },
+  {
+    key: 'eventType', title: 'Any occasion in mind?', options: [
+      { value: 'everyday', label: 'Everyday wardrobe' }, { value: 'work', label: 'Work' },
+      { value: 'event', label: 'Special event' }, { value: 'gift', label: 'A gift' },
+    ]
+  },
 ]
 
 export default function Survey() {

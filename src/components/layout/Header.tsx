@@ -69,18 +69,13 @@ export function Header() {
               <button className="lg:hidden p-2 -ml-2 text-slate-200" onClick={() => setMobileMenu(true)} aria-label={t('a11y.menu')}>
                 <Menu size={22} />
               </button>
-              <Link to="/" className="flex items-center gap-2.5 group">
-                <span className="relative grid place-items-center h-9 w-9 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 shrink-0 transition-transform group-hover:scale-105">
-                  <img
-                    src="/禅TaioMei.png"
-                    alt="TaioMei"
-                    className="h-full w-full object-contain rounded-lg"
-                    onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
-                  />
-                </span>
-                <span className="hidden sm:block font-display font-semibold text-lg tracking-tight">
-                  Taio<span className="text-gradient">Mei</span>
-                </span>
+              <Link to="/" className="flex items-center group">
+                <img
+                  src="/logo.png"
+                  alt="TaioMei"
+                  className="h-9 w-auto max-w-[150px] object-contain rounded-lg shadow-glow transition-transform group-hover:scale-105"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo-white-text.png' }}
+                />
               </Link>
             </div>
 

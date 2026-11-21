@@ -70,19 +70,16 @@ export default function Admin() {
       <div className="lg:grid lg:grid-cols-[240px_1fr]">
         {/* Sidebar */}
         <aside className="lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-white/8 bg-void-900/60 backdrop-blur-xl flex flex-col">
-          <div className="p-5 flex items-center gap-2.5 border-b border-white/8">
-            <div className="h-9 w-9 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 grid place-items-center shrink-0">
+          <div className="p-5 flex items-center justify-between border-b border-white/8">
+            <Link to="/" className="flex items-center">
               <img
-                src="/禅TaioMei.png"
+                src="/logo.png"
                 alt="TaioMei"
-                className="h-full w-full object-contain rounded-lg"
-                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
+                className="h-8 w-auto max-w-[130px] object-contain rounded-md"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo-white-text.png' }}
               />
-            </div>
-            <div>
-              <div className="font-display font-bold leading-none">TaioMei</div>
-              <div className="text-[10px] uppercase tracking-widest text-cyber-300">{t('admin.title')}</div>
-            </div>
+            </Link>
+            <div className="text-[10px] uppercase tracking-widest text-cyber-300 font-mono">{t('admin.title')}</div>
           </div>
           <nav className="flex lg:flex-col gap-1 p-3 overflow-x-auto no-scrollbar flex-1">
             {nav.map((n) => (

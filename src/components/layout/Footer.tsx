@@ -46,16 +46,13 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           {/* Brand + newsletter */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
-              <span className="grid place-items-center h-10 w-10 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 shrink-0 transition-transform group-hover:scale-105">
-                <img
-                  src="/禅TaioMei.png"
-                  alt="TaioMei"
-                  className="h-full w-full object-contain rounded-lg"
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
-                />
-              </span>
-              <span className="font-display font-semibold text-lg">Taio<span className="text-gradient">Mei</span></span>
+            <Link to="/" className="inline-flex items-center mb-4 group">
+              <img
+                src="/logo.png"
+                alt="TaioMei"
+                className="h-10 w-auto max-w-[160px] object-contain rounded-lg shadow-glow transition-transform group-hover:scale-105"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo-white-text.png' }}
+              />
             </Link>
             <p className="text-sm text-slate-400 max-w-xs">{t('footer.tagline')}</p>
             <p className="text-xs text-slate-500 mt-1">{t('brand.country')}</p>
