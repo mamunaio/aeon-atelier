@@ -230,7 +230,7 @@ function generate(): Product[] {
         id: `p${globalIdx}`,
         slug,
         name,
-        brand: 'AEON',
+        brand: 'TaioMei',
         category: cat.id,
         collections: [...new Set(collections)],
         gender,

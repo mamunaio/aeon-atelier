@@ -30,7 +30,7 @@ export default function Account() {
   const [tab, setTab] = useState<TabKey>('profile')
 
   useEffect(() => { if (!user) navigate('/account/signin', { replace: true }) }, [user, navigate])
-  useHead({ title: `${t('account.title')} — AEON`, description: 'Your AEON account.', path: '/account' })
+  useHead({ title: `${t('account.title')} — TaioMei`, description: 'Your TaioMei account.', path: '/account' })
 
   if (!user) return null
 

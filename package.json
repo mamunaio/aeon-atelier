@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "AEON Atelier — Premium Futuristic Fashion E-Commerce Platform",
+  "description": "TaioMei — Premium Futuristic Fashion E-Commerce Platform",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

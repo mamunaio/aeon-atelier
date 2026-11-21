@@ -24,7 +24,7 @@ export default function OrderTracking() {
 
   const order = useMemo(() => (id ? orders.find((o) => o.id.toLowerCase() === id.toLowerCase()) : undefined), [id, orders])
 
-  useHead({ title: `${t('action.trackOrder')} — AEON`, description: t('delivery.tracking'), path: id ? `/track/${id}` : '/track' })
+  useHead({ title: `${t('action.trackOrder')} — TaioMei`, description: t('delivery.tracking'), path: id ? `/track/${id}` : '/track' })
 
   const lookup = (e: React.FormEvent) => {
     e.preventDefault()

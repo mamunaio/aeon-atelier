@@ -9,7 +9,7 @@ import { NovaMascot } from '../components/assistant/NovaMascot'
 export default function NotFound() {
   const { t } = useI18n()
   const { setSearchOpen } = useUI()
-  useHead({ title: 'Page not found — AEON', description: 'The page you were looking for has drifted off into the void.', path: '/404' })
+  useHead({ title: 'Page not found — TaioMei', description: 'The page you were looking for has drifted off into the void.', path: '/404' })
 
   return (
     <div className="container-max section-pad">

@@ -18,8 +18,8 @@ interface PageDef { title: string; intro: string; icon: typeof FileText; blocks?
 
 const PAGES: Record<string, PageDef> = {
   about: {
-    title: 'About AEON Atelier', icon: Sparkles,
-    intro: 'AEON Atelier is a next-generation fashion house — designed in Malaysia, built for a global wardrobe. We fuse premium materials with a fully personalized shopping experience.',
+    title: 'About TaioMei', icon: Sparkles,
+    intro: 'TaioMei is a next-generation fashion house — designed in Malaysia, built for a global wardrobe. We fuse premium materials with a fully personalized shopping experience.',
     blocks: [
       { h: 'Our philosophy', p: 'We believe clothing should be an extension of identity. Every piece is engineered with precision-cut patterns, reinforced seams and a refined hand-feel — then made truly yours through live customization.' },
       { h: 'Designed in Malaysia', p: 'Our studio is rooted in Kuala Lumpur, drawing on a vibrant regional creative culture and world-class manufacturing partners to deliver global-quality craftsmanship.' },
@@ -63,7 +63,7 @@ const PAGES: Record<string, PageDef> = {
   },
   faq: {
     title: 'Frequently Asked Questions', icon: FileText,
-    intro: 'Everything you need to know about shopping, customizing and receiving your AEON pieces.',
+    intro: 'Everything you need to know about shopping, customizing and receiving your TaioMei pieces.',
   },
   contact: {
     title: 'Contact & Support', icon: Mail,
@@ -86,12 +86,12 @@ const PAGES: Record<string, PageDef> = {
   },
   terms: {
     title: 'Terms & Conditions', icon: FileText,
-    intro: 'The ground rules for using AEON Atelier. By shopping with us, you agree to these terms.',
+    intro: 'The ground rules for using TaioMei. By shopping with us, you agree to these terms.',
     blocks: [
       { h: 'Orders & pricing', p: 'All prices are shown in Malaysian Ringgit (RM). We reserve the right to correct pricing errors and to limit quantities. Order confirmation is issued once payment is verified.' },
       { h: 'Accounts', p: 'You are responsible for keeping your account secure. Certain higher-value orders may require a verified account for fraud protection.' },
       { h: 'Customization', p: 'You confirm you hold the rights to any artwork, text or logos you upload. We reserve the right to decline content that is unlawful or infringes third-party rights.' },
-      { h: 'Intellectual property', p: 'All site content, branding and designs are the property of AEON Atelier and may not be reproduced without permission.' },
+      { h: 'Intellectual property', p: 'All site content, branding and designs are the property of TaioMei and may not be reproduced without permission.' },
     ],
   },
 }
@@ -111,7 +111,7 @@ export default function StaticPage() {
   const { t } = useI18n()
   const page = PAGES[slug] ?? PAGES.about
   const Icon = page.icon
-  useHead({ title: `${page.title} — AEON`, description: page.intro, path: `/page/${slug}` })
+  useHead({ title: `${page.title} — TaioMei`, description: page.intro, path: `/page/${slug}` })
 
   return (
     <div>
@@ -123,7 +123,7 @@ export default function StaticPage() {
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-4">
             <Link to="/" className="hover:text-white">{t('nav.home')}</Link><span>/</span><span className="text-slate-300">{page.title}</span>
           </div>
-          <div className="inline-flex items-center gap-2 chip glass text-cyber-300 mb-4"><Icon size={14} /> AEON</div>
+          <div className="inline-flex items-center gap-2 chip glass text-cyber-300 mb-4"><Icon size={14} /> TaioMei</div>
           <h1 className="font-display text-4xl sm:text-5xl font-bold max-w-3xl text-balance">{page.title}</h1>
           <p className="mt-4 text-lg text-slate-300 max-w-2xl">{page.intro}</p>
         </div>
@@ -202,7 +202,7 @@ function Contact() {
   }
 
   const info = [
-    { icon: Mail, label: 'Email', value: 'hello@aeon-atelier.example' },
+    { icon: Mail, label: 'Email', value: 'hello@taiomei.com' },
     { icon: Phone, label: 'Phone', value: '+60 3-1234 5678' },
     { icon: MapPin, label: 'Studio', value: 'Kuala Lumpur, Malaysia' },
     { icon: Clock, label: 'Hours', value: 'Mon–Sat · 9am–7pm (MYT)' },

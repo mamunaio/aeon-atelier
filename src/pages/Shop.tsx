@@ -90,7 +90,7 @@ export default function Shop() {
   }
 
   useHead({
-    title: q ? `${t('search.results', { q })} — AEON` : 'Shop All — AEON Atelier',
+    title: q ? `${t('search.results', { q })} — TaioMei` : 'Shop All — TaioMei',
     description: 'Browse premium apparel, footwear and accessories with intelligent filtering.',
     path: '/shop',
     jsonLd: breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Shop', path: '/shop' }]),

@@ -73,7 +73,7 @@ export default function Survey() {
   const [profile, setProfile] = useState<StyleProfile | null>(user?.styleProfile ?? null)
   const [quick, setQuick] = useState<Product | null>(null)
 
-  useHead({ title: `${t('survey.title')} — AEON`, description: t('survey.sub'), path: '/survey' })
+  useHead({ title: `${t('survey.title')} — TaioMei`, description: t('survey.sub'), path: '/survey' })
 
   const q = QUESTIONS[step]
   const current = answers[q?.key] ?? []

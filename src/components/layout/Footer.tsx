@@ -46,11 +46,16 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           {/* Brand + newsletter */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="grid place-items-center h-9 w-9 rounded-xl bg-aurora-gradient shadow-glow">
-                <span className="font-display font-bold text-void-950 text-lg">A</span>
+            <Link to="/" className="flex items-center gap-2.5 mb-4 group inline-flex">
+              <span className="grid place-items-center h-10 w-10 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 shrink-0 transition-transform group-hover:scale-105">
+                <img
+                  src="/禅TaioMei.png"
+                  alt="TaioMei"
+                  className="h-full w-full object-contain rounded-lg"
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
+                />
               </span>
-              <span className="font-display font-semibold text-lg">AEON <span className="text-gradient">Atelier</span></span>
+              <span className="font-display font-semibold text-lg">Taio<span className="text-gradient">Mei</span></span>
             </Link>
             <p className="text-sm text-slate-400 max-w-xs">{t('footer.tagline')}</p>
             <p className="text-xs text-slate-500 mt-1">{t('brand.country')}</p>
@@ -91,7 +96,7 @@ export function Footer() {
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <span className="text-xs text-slate-500">© 2026 AEON Atelier. {t('footer.rights')}</span>
+            <span className="text-xs text-slate-500">© 2026 TaioMei. {t('footer.rights')}</span>
             <Link to="/page/privacy" className="text-xs text-slate-500 hover:text-white">{t('footer.privacy')}</Link>
             <Link to="/page/terms" className="text-xs text-slate-500 hover:text-white">{t('footer.terms')}</Link>
           </div>

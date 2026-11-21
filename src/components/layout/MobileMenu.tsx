@@ -41,7 +41,17 @@ export function MobileMenu() {
           >
             <div className="p-5">
               <div className="flex items-center justify-between mb-6">
-                <span className="font-display font-semibold text-lg">AEON <span className="text-gradient">Atelier</span></span>
+                <Link to="/" onClick={() => setMobileMenu(false)} className="flex items-center gap-2.5">
+                  <span className="grid place-items-center h-8 w-8 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 shrink-0">
+                    <img
+                      src="/禅TaioMei.png"
+                      alt="TaioMei"
+                      className="h-full w-full object-contain rounded-lg"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
+                    />
+                  </span>
+                  <span className="font-display font-semibold text-lg">Taio<span className="text-gradient">Mei</span></span>
+                </Link>
                 <button onClick={() => setMobileMenu(false)} className="p-2 text-slate-300" aria-label={t('action.close')}>
                   <X size={22} />
                 </button>

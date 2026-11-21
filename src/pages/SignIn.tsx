@@ -27,7 +27,7 @@ export default function SignIn() {
   const [error, setError] = useState('')
 
   useEffect(() => { if (user) navigate('/account', { replace: true }) }, [user, navigate])
-  useHead({ title: `${t('account.signInTitle')} — AEON`, description: t('account.signInSub'), path: '/account/signin' })
+  useHead({ title: `${t('account.signInTitle')} — TaioMei`, description: t('account.signInSub'), path: '/account/signin' })
 
   const sendOtp = (e: React.FormEvent) => {
     e.preventDefault(); setError('')
@@ -37,8 +37,8 @@ export default function SignIn() {
 
   const verify = (e: React.FormEvent) => {
     e.preventDefault(); setError('')
-    if (verifyOtp(code, { name: name || 'AEON Member', phone, email })) {
-      pushToast({ kind: 'success', title: `${t('account.welcome')}!`, desc: name || 'AEON Member' })
+    if (verifyOtp(code, { name: name || 'TaioMei Member', phone, email })) {
+      pushToast({ kind: 'success', title: `${t('account.welcome')}!`, desc: name || 'TaioMei Member' })
       navigate('/account')
     } else setError('Incorrect code. Try again.')
   }
@@ -66,7 +66,7 @@ export default function SignIn() {
         <div className="hidden lg:block">
           <div className="nova-float mb-4"><NovaMascot mood="wave" size={110} /></div>
           <h2 className="font-display text-3xl font-bold text-balance">Join the future of fashion</h2>
-          <p className="text-slate-400 mt-2">Create your AEON identity and unlock a fully personalized experience.</p>
+          <p className="text-slate-400 mt-2">Create your TaioMei identity and unlock a fully personalized experience.</p>
           <ul className="mt-6 space-y-3">
             {perks.map((p) => (
               <li key={p.text} className="flex items-center gap-3 text-slate-300">

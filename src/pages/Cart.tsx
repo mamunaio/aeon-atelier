@@ -49,7 +49,7 @@ export default function Cart() {
     setApplied({ code: code.toUpperCase(), discount: res.discount ?? 0, freeShip: res.freeShip ?? false })
   }
 
-  useHead({ title: `${t('cart.title')} — AEON`, description: 'Your shopping bag.', path: '/cart' })
+  useHead({ title: `${t('cart.title')} — TaioMei`, description: 'Your shopping bag.', path: '/cart' })
 
   if (items.length === 0) {
     return (

@@ -27,7 +27,7 @@ export default function Wishlist() {
   const compareProducts = useMemo(() => compareIds.map((id) => PRODUCT_BY_ID[id]).filter(Boolean) as Product[], [compareIds])
   const recos = useMemo(() => recommend({ wishlistIds: ids }, 4, ids), [ids])
 
-  useHead({ title: `${t('wishlist.title')} — AEON`, description: t('wishlist.emptySub'), path: '/wishlist' })
+  useHead({ title: `${t('wishlist.title')} — TaioMei`, description: t('wishlist.emptySub'), path: '/wishlist' })
 
   if (products.length === 0) {
     return (

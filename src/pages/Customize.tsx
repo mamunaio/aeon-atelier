@@ -48,7 +48,7 @@ export default function Customize() {
     if (product?.printLocations?.length && !product.printLocations.includes(location)) setLocation(product.printLocations[0])
   }, [product])
 
-  useHead({ title: `${t('customize.title')} — AEON`, description: t('customize.sub'), path: '/customize' })
+  useHead({ title: `${t('customize.title')} — TaioMei`, description: t('customize.sub'), path: '/customize' })
 
   if (!product) return null
   const color = product.colors[colorIdx]

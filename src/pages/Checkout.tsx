@@ -59,7 +59,7 @@ export default function Checkout() {
 
   const formValid = form.name && form.phone && form.address && form.city && form.postal && payment
 
-  useHead({ title: `${t('checkout.title')} — AEON`, description: 'Secure checkout.', path: '/checkout' })
+  useHead({ title: `${t('checkout.title')} — TaioMei`, description: 'Secure checkout.', path: '/checkout' })
 
   const place = () => {
     if (!formValid) { pushToast({ kind: 'error', title: 'Please complete all required fields' }); return }

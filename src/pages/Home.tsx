@@ -33,7 +33,7 @@ export default function Home() {
   const user = useAuth((s) => s.user)
 
   useHead({
-    title: 'AEON Atelier — Wear Your Style. Create Your Identity.',
+    title: 'TaioMei — Wear Your Style. Create Your Identity.',
     description: 'Premium futuristic fashion and live customization, designed in Malaysia. Discover apparel, footwear and accessories built for the next generation.',
     path: '/',
     jsonLd: organizationJsonLd(),
@@ -346,7 +346,7 @@ export default function Home() {
             <div className="absolute inset-0 -z-10 bg-aurora-gradient opacity-90" />
             <div className="absolute inset-0 -z-10 bg-void-950/40" />
             <h3 className="font-display text-3xl sm:text-5xl font-bold text-white">Your identity, engineered.</h3>
-            <p className="mt-3 text-white/80 max-w-xl mx-auto">Join the AEON community and wear fashion that's unmistakably yours.</p>
+            <p className="mt-3 text-white/80 max-w-xl mx-auto">Join the TaioMei community and wear fashion that's unmistakably yours.</p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
               <Link to="/shop" className="btn bg-white text-void-950 hover:bg-white/90">{t('action.shopNow')} <ChevronRight size={16} /></Link>
               <Link to="/account/signin" className="btn-ghost !border-white/40 text-white">{t('action.register')}</Link>

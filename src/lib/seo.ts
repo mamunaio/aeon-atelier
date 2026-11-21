@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import type { Product } from '../types'
 
-const BASE = 'https://aeon-atelier.example'
+const BASE = 'https://taiomei.com'
 
 function setMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)
@@ -36,7 +36,7 @@ export interface HeadOptions {
 /** Manage document head per route (title, meta, canonical, OG, JSON-LD). */
 export function useHead({ title, description, path, jsonLd }: HeadOptions) {
   useEffect(() => {
-    const fullTitle = title.includes('AEON') ? title : `${title} — AEON Atelier`
+    const fullTitle = title.includes('TaioMei') ? title : `${title} — TaioMei`
     document.title = fullTitle
     if (description) {
       setMeta('name', 'description', description)
@@ -83,7 +83,7 @@ export function organizationJsonLd(): object {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'AEON Atelier',
+    name: 'TaioMei',
     url: BASE,
     slogan: 'Wear Your Style. Create Your Identity.',
     areaServed: 'MY',

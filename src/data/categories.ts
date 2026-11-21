@@ -39,7 +39,7 @@ export const CATEGORIES: Category[] = [
 
 export const COLLECTIONS: Collection[] = [
   { id: 'new', name: 'New Arrivals', blurb: 'Fresh drops, engineered for the future', accent: '#7b4dff' },
-  { id: 'best', name: 'Best Sellers', blurb: 'Loved by the AEON community', accent: '#12d3e0' },
+  { id: 'best', name: 'Best Sellers', blurb: 'Loved by the TaioMei community', accent: '#12d3e0' },
   { id: 'trending', name: 'Trending', blurb: 'What the world is wearing', accent: '#ff5da2' },
   { id: 'premium', name: 'Premium Collection', blurb: 'Elevated fabrics, uncompromising craft', accent: '#d4af37' },
   { id: 'men', name: "Men's Fashion", blurb: 'Sharp, modern, effortless', accent: '#4a90ff' },

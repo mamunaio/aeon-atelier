@@ -27,7 +27,7 @@ export default function Events() {
     logoName: '', contactName: '', contactPhone: '', contactEmail: '',
   })
 
-  useHead({ title: `${t('event.title')} — AEON`, description: t('event.sub'), path: '/events' })
+  useHead({ title: `${t('event.title')} — TaioMei`, description: t('event.sub'), path: '/events' })
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()

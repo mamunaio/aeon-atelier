@@ -53,7 +53,7 @@ const PIE_COLORS = ['#7b4dff', '#12d3e0', '#d4af37', '#ff5da2', '#3f9e5e', '#f59
 export default function Admin() {
   const { t } = useI18n()
   const [view, setView] = useState<ViewKey>('dashboard')
-  useHead({ title: `${t('admin.title')} — AEON`, description: 'AEON business console', path: '/admin' })
+  useHead({ title: `${t('admin.title')} — TaioMei`, description: 'TaioMei business console', path: '/admin' })
 
   const nav: { key: ViewKey; label: string; icon: typeof LayoutDashboard }[] = [
     { key: 'dashboard', label: t('admin.dashboard'), icon: LayoutDashboard },
@@ -71,9 +71,16 @@ export default function Admin() {
         {/* Sidebar */}
         <aside className="lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-white/8 bg-void-900/60 backdrop-blur-xl flex flex-col">
           <div className="p-5 flex items-center gap-2.5 border-b border-white/8">
-            <div className="h-9 w-9 rounded-xl bg-aurora-gradient grid place-items-center shrink-0"><Sparkles size={18} className="text-white" /></div>
+            <div className="h-9 w-9 rounded-xl overflow-hidden ring-1 ring-white/20 shadow-glow bg-void-900/60 p-0.5 grid place-items-center shrink-0">
+              <img
+                src="/禅TaioMei.png"
+                alt="TaioMei"
+                className="h-full w-full object-contain rounded-lg"
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/logo.png' }}
+              />
+            </div>
             <div>
-              <div className="font-display font-bold leading-none">AEON</div>
+              <div className="font-display font-bold leading-none">TaioMei</div>
               <div className="text-[10px] uppercase tracking-widest text-cyber-300">{t('admin.title')}</div>
             </div>
           </div>
@@ -288,7 +295,7 @@ function makeDraftProduct(form: { name: string; category: string; price: number;
   const id = `adm-${Date.now()}`
   return {
     id, slug: `${form.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-${id.slice(-4)}`,
-    name: form.name, brand: 'AEON Atelier', category: form.category, collections: ['new'],
+    name: form.name, brand: 'TaioMei', category: form.category, collections: ['new'],
     gender: 'unisex', kind: cat.kind, description: 'Newly added by admin.', price: form.price,
     currency: 'MYR', rating: 0, reviewCount: 0,
     colors: [{ name: 'Obsidian', hex: '#0e0e12' }, { name: 'Arctic White', hex: '#f5f6fa' }],

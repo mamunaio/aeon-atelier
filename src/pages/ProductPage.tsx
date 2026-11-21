@@ -46,7 +46,7 @@ export default function ProductPage() {
   }, [product?.id])
 
   useHead({
-    title: product ? `${product.name} — AEON Atelier` : 'Product — AEON',
+    title: product ? `${product.name} — TaioMei` : 'Product — TaioMei',
     description: product?.description,
     path: product ? `/product/${product.slug}` : '/shop',
     jsonLd: product ? productJsonLd(product) : null,
