@@ -129,10 +129,13 @@ export default function Home() {
   const best = bestSellers(10)
   const trending = productsIn('trending', 10)
   const premium = productsIn('premium', 10)
+  const premiumIds = new Set(premium.map((p) => p.id))
   const recos = recommend(
     { profile: user?.styleProfile, wishlistIds: wishlist.ids, recentIds: recentlyViewed },
-    10
+    20
   )
+    .filter(({ product }) => !premiumIds.has(product.id))
+    .slice(0, 10)
 
   const trust = [
     { icon: Truck, label: t('home.trustFast') },
@@ -341,13 +344,12 @@ export default function Home() {
                   key={pillar.id}
                   onMouseEnter={() => setHoveredPillar(i)}
                   onFocus={() => setHoveredPillar(i)}
-                  className={`group/pillar relative min-h-[380px] lg:min-h-0 rounded-2xl overflow-hidden bg-[#0E0E12] border transition-[flex-grow,border-color,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    isExpanded
+                  className={`group/pillar relative min-h-[380px] lg:min-h-0 rounded-2xl overflow-hidden bg-[#0E0E12] border transition-[flex-grow,border-color,opacity,filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${isExpanded
                       ? 'lg:flex-[1.75] border-white/30 opacity-100'
                       : isDimmed
-                      ? 'lg:flex-[0.82] border-white/10 opacity-55 saturate-50'
-                      : 'lg:flex-1 border-white/12 opacity-100'
-                  }`}
+                        ? 'lg:flex-[0.82] border-white/10 opacity-55 saturate-50'
+                        : 'lg:flex-1 border-white/12 opacity-100'
+                    }`}
                 >
                   <Link to={pillar.to} className="absolute inset-0 z-0">
                     <img
@@ -357,35 +359,31 @@ export default function Home() {
                       className="h-full w-full object-cover object-center transition-[filter] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     />
                     <div
-                      className={`absolute inset-0 transition-opacity duration-500 ${
-                        isExpanded
+                      className={`absolute inset-0 transition-opacity duration-500 ${isExpanded
                           ? 'bg-gradient-to-t from-[#09090B] via-[#09090B]/20 to-black/15'
                           : 'bg-gradient-to-t from-[#09090B]/95 via-[#09090B]/35 to-black/30'
-                      }`}
+                        }`}
                     />
                   </Link>
 
                   {/* Architectural corner hairline bracket on active focus */}
                   <div
                     aria-hidden="true"
-                    className={`pointer-events-none absolute inset-3 rounded-xl border transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                      isExpanded ? 'border-white/15 opacity-100 scale-100' : 'border-transparent opacity-0 scale-[0.98]'
-                    }`}
+                    className={`pointer-events-none absolute inset-3 rounded-xl border transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isExpanded ? 'border-white/15 opacity-100 scale-100' : 'border-transparent opacity-0 scale-[0.98]'
+                      }`}
                   />
 
                   <div className="relative z-10 h-full p-6 flex flex-col justify-between pointer-events-none">
                     <div className="flex items-center justify-between">
                       <span
-                        className={`font-mono text-[11px] tracking-[0.22em] transition-colors duration-300 tabular-nums ${
-                          isExpanded ? 'text-[#E03E36]' : 'text-[#C7C1B8]'
-                        }`}
+                        className={`font-mono text-[11px] tracking-[0.22em] transition-colors duration-300 tabular-nums ${isExpanded ? 'text-[#E03E36]' : 'text-[#C7C1B8]'
+                          }`}
                       >
                         {pillar.id} / 04
                       </span>
                       <span
-                        className={`inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.18em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isExpanded ? 'opacity-100 translate-x-0 text-[#F2EFE9]' : 'opacity-0 translate-x-2 text-[#9E988E]'
-                        }`}
+                        className={`inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.18em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isExpanded ? 'opacity-100 translate-x-0 text-[#F2EFE9]' : 'opacity-0 translate-x-2 text-[#9E988E]'
+                          }`}
                       >
                         Enter <ArrowRight size={12} className="text-[#E03E36]" />
                       </span>
@@ -400,11 +398,10 @@ export default function Home() {
 
                       {/* Clip-path / Mask reveal of sub-departments on expand */}
                       <div
-                        className={`overflow-hidden transition-[max-height,opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isExpanded
+                        className={`overflow-hidden transition-[max-height,opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isExpanded
                             ? 'max-h-24 opacity-100 translate-y-0 mt-3.5'
                             : 'lg:max-h-0 lg:opacity-0 lg:translate-y-2 mt-3 lg:mt-0'
-                        }`}
+                          }`}
                       >
                         <div className="flex flex-wrap gap-1.5 pointer-events-auto">
                           {pillar.subs.map((sub) => (
@@ -456,11 +453,10 @@ export default function Home() {
                           type="button"
                           onMouseEnter={() => setCustomIdx(idx)}
                           onClick={() => setCustomIdx(idx)}
-                          className={`group/pre relative text-left rounded-xl px-3.5 py-3 border transition-[border-color,transform] duration-200 active:scale-[0.98] ${
-                            active
+                          className={`group/pre relative text-left rounded-xl px-3.5 py-3 border transition-[border-color,transform] duration-200 active:scale-[0.98] ${active
                               ? 'border-white/30 text-[#F2EFE9]'
                               : 'border-white/10 text-[#9E988E] hover:border-white/25 hover:text-[#F2EFE9]'
-                          }`}
+                            }`}
                         >
                           {active && (
                             <motion.span

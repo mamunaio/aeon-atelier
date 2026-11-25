@@ -1,7 +1,7 @@
 'use client'
 
 import { Link } from '../lib/router'
-import { useRef, useState, type ReactNode } from 'react'
+import { useRef, useState, useEffect, type ReactNode } from 'react'
 import { ChevronLeft, ChevronRight, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Garment } from './Garment'
 import { getProductDemoPhotos } from '../data/productImages'
@@ -52,33 +52,88 @@ export function SectionHeader({
   )
 }
 
-/** Horizontal, snap-scrolling rail with arrow controls (desktop). */
+/** Horizontal, snap-scrolling rail with smart arrow controls & hairline progress track. */
 export function Rail({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(true)
+  const [progress, setProgress] = useState(0)
+
+  const syncScroll = () => {
+    const el = ref.current
+    if (!el) return
+    const max = Math.max(0, el.scrollWidth - el.clientWidth)
+    setCanPrev(el.scrollLeft > 4)
+    setCanNext(el.scrollLeft < max - 4)
+    setProgress(max > 0 ? Math.min(1, Math.max(0, el.scrollLeft / max)) : 0)
+  }
+
+  useEffect(() => {
+    syncScroll()
+    window.addEventListener('resize', syncScroll)
+    return () => window.removeEventListener('resize', syncScroll)
+  }, [])
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const onWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return
+      const max = el.scrollWidth - el.clientWidth
+      if (max <= 0) return
+      const atStart = el.scrollLeft <= 1
+      const atEnd = el.scrollLeft >= max - 1
+      if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
+        e.preventDefault()
+        el.scrollLeft += e.deltaY
+      }
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, [])
+
   const scroll = (dir: number) => {
     ref.current?.scrollBy({ left: dir * (ref.current.clientWidth * 0.8), behavior: 'smooth' })
   }
+
   return (
     <div className="relative group/rail">
-      <div ref={ref} className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 -mx-1 px-1">
+      <div
+        ref={ref}
+        onScroll={syncScroll}
+        className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-3 -mx-1 px-1"
+      >
         {children}
       </div>
-      <button
-        type="button"
-        onClick={() => scroll(-1)}
-        className="hidden lg:grid place-items-center absolute -left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-[#0E0E12] border border-white/15 hover:border-white/35 text-[#F2EFE9] opacity-0 group-hover/rail:opacity-100 active:scale-[0.95] transition-[opacity,border-color,transform] duration-200 shadow-2xl"
-        aria-label="Previous"
-      >
-        <ChevronLeft size={18} />
-      </button>
-      <button
-        type="button"
-        onClick={() => scroll(1)}
-        className="hidden lg:grid place-items-center absolute -right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-[#0E0E12] border border-white/15 hover:border-white/35 text-[#F2EFE9] opacity-0 group-hover/rail:opacity-100 active:scale-[0.95] transition-[opacity,border-color,transform] duration-200 shadow-2xl"
-        aria-label="Next"
-      >
-        <ChevronRight size={18} />
-      </button>
+
+      {/* Subtle architectural scroll-progress hairline */}
+      <div className="mt-2 h-[2px] w-full rounded-full bg-white/[0.06] overflow-hidden">
+        <div
+          className="h-full rounded-full bg-[#E03E36] transition-[width] duration-150 ease-out"
+          style={{ width: `${Math.max(18, progress * 100)}%` }}
+        />
+      </div>
+
+      {canPrev && (
+        <button
+          type="button"
+          onClick={() => scroll(-1)}
+          className="hidden lg:grid place-items-center absolute -left-4 top-[46%] -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-[#0E0E12] border border-white/15 hover:border-[#E03E36] hover:bg-[#E03E36] text-[#F2EFE9] opacity-0 group-hover/rail:opacity-100 active:scale-[0.94] transition-[opacity,background-color,border-color,transform] duration-200 shadow-2xl"
+          aria-label="Previous"
+        >
+          <ChevronLeft size={18} />
+        </button>
+      )}
+      {canNext && (
+        <button
+          type="button"
+          onClick={() => scroll(1)}
+          className="hidden lg:grid place-items-center absolute -right-4 top-[46%] -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-[#0E0E12] border border-white/15 hover:border-[#E03E36] hover:bg-[#E03E36] text-[#F2EFE9] opacity-0 group-hover/rail:opacity-100 active:scale-[0.94] transition-[opacity,background-color,border-color,transform] duration-200 shadow-2xl"
+          aria-label="Next"
+        >
+          <ChevronRight size={18} />
+        </button>
+      )}
     </div>
   )
 }
