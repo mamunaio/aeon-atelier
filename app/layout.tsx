@@ -1,6 +1,13 @@
 import type { Metadata } from 'next'
+import { Pinyon_Script } from 'next/font/google'
 import { AppShell } from '../components/layout/AppShell'
 import './globals.css'
+
+const signatureFont = Pinyon_Script({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-signature',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://taiomei.com'),
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`dark ${signatureFont.variable}`}>
       <body>
         <AppShell>{children}</AppShell>
       </body>

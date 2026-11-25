@@ -10,6 +10,7 @@ import { MobileMenu } from './MobileMenu'
 import { FashionAssistant } from '../assistant/FashionAssistant'
 import { Toaster } from '../ui/Toaster'
 import { FlyToCart } from '../ui/FlyToCart'
+import { BackToTop } from '../ui/BackToTop'
 import { SearchOverlay } from '../SearchOverlay'
 import { useUI } from '../../store/ui'
 
@@ -44,6 +45,7 @@ function ShellInner({ children }: { children: React.ReactNode }) {
         {!isAdmin && <MobileNav />}
         {!isAdmin && <MobileMenu />}
         {!isAdmin && <FashionAssistant />}
+        {!isAdmin && <BackToTop />}
         <SearchOverlay />
         <Toaster />
         <FlyToCart />

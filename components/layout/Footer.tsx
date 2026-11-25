@@ -153,53 +153,55 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bespoke Animated TaioMei Signature + Admin Link */}
-        <div className="mt-8 flex flex-col items-center gap-3">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex h-6 w-6 items-center justify-center rounded bg-[#E03E36] text-[11px] font-bold text-white select-none">
+        {/* Couture Calligraphic TaioMei Signature + Hanko Seal */}
+        <div className="mt-10 flex flex-col items-center gap-2.5">
+          <div className="flex items-center gap-4">
+            <span
+              className="inline-flex h-7 w-7 items-center justify-center rounded-sm border border-[#E03E36]/60 bg-[#E03E36]/90 text-xs font-semibold text-[#F2EFE9] shadow-[0_0_0_1px_rgba(224,62,54,0.2)] select-none"
+              title="TaioMei Seal"
+            >
               禅
             </span>
-            <svg
-              viewBox="0 0 220 48"
-              className="h-9 w-auto text-[#C6A87C]"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-label="TaioMei Signature"
+            <motion.span
+              initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0.4 }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+              style={{ fontFamily: "var(--font-signature), Georgia, serif" }}
+              className="text-4xl sm:text-5xl tracking-wide bg-gradient-to-r from-[#F2EFE9] via-[#E5C99B] to-[#C6A87C] bg-clip-text text-transparent select-none pr-2"
             >
-              <motion.path
-                d="M12 14 C28 11, 48 10, 62 12 M35 12 C32 24, 28 34, 24 41 M45 34 C50 26, 60 24, 62 31 C63 36, 56 39, 52 36 C55 36, 62 35, 67 30 M74 26 C73 32, 72 36, 73 39 M75 18 L75 19 M84 29 C84 24, 92 23, 94 28 C96 34, 87 38, 84 32 M104 37 C106 27, 110 15, 114 14 C117 14, 119 25, 121 29 C125 23, 130 14, 134 15 C137 16, 134 30, 134 37 M143 31 C148 31, 154 27, 152 24 C149 21, 142 25, 142 32 C142 38, 151 39, 157 34 M165 26 C164 31, 163 36, 165 38 M166 18 L166 19 M18 42 C68 38, 134 36, 198 39"
-                stroke="currentColor"
-                strokeWidth="1.65"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                initial={{ pathLength: 0, opacity: 0.25 }}
-                whileInView={{ pathLength: 1, opacity: 0.9 }}
-                viewport={{ once: true, margin: '-20px' }}
-                transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </svg>
+              TaioMei
+            </motion.span>
           </div>
-
+          <div className="flex items-center gap-3 text-[9px] font-mono uppercase tracking-[0.28em] text-[#9E988E]/70">
+            <span>Signed Edition</span>
+            <span className="h-1 w-1 rounded-full bg-[#E03E36]" />
+            <span>Est. 2026</span>
+          </div>
         </div>
 
-        {/* Monumental Architectural Wordmark Sign-off (Sculpted Gradient + Cursor Spotlight) */}
+        {/* Monumental Architectural Wordmark Sign-off (Full-Width Spaced + Cursor Spotlight) */}
         <div
           onMouseMove={(e) => {
             const r = e.currentTarget.getBoundingClientRect()
             setMarkPos({ x: e.clientX - r.left, y: e.clientY - r.top })
           }}
           onMouseLeave={() => setMarkPos(null)}
-          className="relative mt-6 pt-2 select-none overflow-hidden"
+          className="relative mt-8 pt-2 pb-4 select-none overflow-hidden w-full"
         >
           <div
-            className="font-display text-[15vw] sm:text-[12vw] lg:text-[9.5rem] font-semibold tracking-[-0.04em] leading-[0.82] text-center bg-clip-text text-transparent transition-all duration-300"
+            className="w-full flex items-center justify-between font-display text-[13vw] sm:text-[11vw] lg:text-[11.5rem] xl:text-[13rem] font-semibold leading-[0.84] bg-clip-text text-transparent transition-all duration-300"
             style={{
               backgroundImage: markPos
-                ? `radial-gradient(240px circle at ${markPos.x}px ${markPos.y}px, rgba(242,239,233,0.34), rgba(224,62,54,0.16) 45%, rgba(255,255,255,0.06) 75%)`
+                ? `radial-gradient(280px circle at ${markPos.x}px ${markPos.y}px, rgba(242,239,233,0.36), rgba(224,62,54,0.18) 45%, rgba(255,255,255,0.06) 75%)`
                 : 'linear-gradient(180deg, rgba(242,239,233,0.16) 0%, rgba(242,239,233,0.03) 100%)',
             }}
           >
-            TAIOMEI
+            {['T', 'A', 'I', 'O', 'M', 'E', 'I'].map((ch, idx) => (
+              <span key={idx} className="inline-block">
+                {ch}
+              </span>
+            ))}
           </div>
         </div>
       </div>
