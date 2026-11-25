@@ -40,16 +40,16 @@ body {
 }
 
 /* ---------- Scrollbar ---------- */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #0a0a0f; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #070709; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #5a1fe6, #12d3e0);
-  border-radius: 8px;
-  border: 2px solid #0a0a0f;
+  background: rgba(242, 239, 233, 0.18);
+  border-radius: 9999px;
+  border: 2px solid #070709;
 }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #6a2fff, #3ee6f0); }
+::-webkit-scrollbar-thumb:hover { background: #E03E36; }
 
-::selection { background: rgba(123, 77, 255, 0.4); color: #fff; }
+::selection { background: rgba(224, 62, 54, 0.35); color: #F2EFE9; }
 
 @layer components {
   .glass {
