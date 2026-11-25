@@ -1,37 +1,41 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './views/**/*.{js,ts,jsx,tsx}',
+  ],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Deep space canvas
+        // Deep obsidian luxury canvas
         void: {
-          950: '#050508',
-          900: '#0a0a0f',
-          850: '#0d0d16',
-          800: '#12121d',
-          700: '#1a1a2e',
-          600: '#242438',
+          950: '#070709',
+          900: '#09090B',
+          850: '#0F0F13',
+          800: '#121216',
+          700: '#1B1B21',
+          600: '#27272F',
         },
-        // Neon accent — electric violet / cyan
+        // Crimson seal & warm stone accents
         aurora: {
-          50: '#f2f0ff',
-          100: '#e6e1ff',
-          200: '#ccc2ff',
-          300: '#a394ff',
-          400: '#8b6dff',
-          500: '#7b4dff',
-          600: '#6a2fff',
-          700: '#5a1fe6',
-          800: '#4a19bd',
-          900: '#3d1799',
+          50: '#fef2f2',
+          100: '#fde3e2',
+          200: '#fbcbc9',
+          300: '#f59e99',
+          400: '#eb6861',
+          500: '#E03E36',
+          600: '#c8322b',
+          700: '#a62620',
+          800: '#89221d',
+          900: '#72211d',
         },
         cyber: {
-          300: '#7df9ff',
-          400: '#3ee6f0',
-          500: '#12d3e0',
-          600: '#06b6c9',
+          300: '#F2EFE9',
+          400: '#D8D2C7',
+          500: '#9E988E',
+          600: '#787269',
         },
         gold: {
           300: '#f5e6b8',
@@ -45,15 +49,15 @@ export default {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       backgroundImage: {
-        'aurora-gradient': 'linear-gradient(135deg, #7b4dff 0%, #12d3e0 100%)',
+        'aurora-gradient': 'linear-gradient(135deg, #E03E36 0%, #b82922 100%)',
         'gold-gradient': 'linear-gradient(135deg, #f5e6b8 0%, #d4af37 60%, #b8942a 100%)',
-        'void-radial': 'radial-gradient(ellipse at top, #1a1a2e 0%, #0a0a0f 55%, #050508 100%)',
-        'mesh': 'radial-gradient(at 20% 20%, rgba(123,77,255,0.22) 0px, transparent 45%), radial-gradient(at 80% 10%, rgba(18,211,224,0.16) 0px, transparent 40%), radial-gradient(at 60% 80%, rgba(123,77,255,0.14) 0px, transparent 45%)',
+        'void-radial': 'radial-gradient(ellipse at top, #16161B 0%, #09090B 60%, #070709 100%)',
+        'mesh': 'radial-gradient(at 20% 20%, rgba(224,62,54,0.12) 0px, transparent 45%), radial-gradient(at 80% 10%, rgba(242,239,233,0.06) 0px, transparent 40%), radial-gradient(at 60% 80%, rgba(224,62,54,0.08) 0px, transparent 45%)',
       },
       boxShadow: {
-        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
-        glow: '0 0 24px rgba(123, 77, 255, 0.45)',
-        'glow-cyan': '0 0 24px rgba(18, 211, 224, 0.4)',
+        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.55)',
+        glow: '0 0 24px rgba(224, 62, 54, 0.35)',
+        'glow-cyan': '0 0 24px rgba(242, 239, 233, 0.2)',
         'glow-gold': '0 0 20px rgba(212, 175, 55, 0.35)',
         'inner-top': 'inset 0 1px 0 0 rgba(255,255,255,0.08)',
       },
